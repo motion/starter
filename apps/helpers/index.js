@@ -6,7 +6,7 @@ import React from 'react'
 import gloss from 'gloss'
 import { observer } from 'mobx-react'
 import { observable } from 'mobx'
-import { provide, injectDecorate } from 'motion-view'
+import { provide } from 'motion-view'
 import baseStyles from './baseStyles'
 
 export { inject } from 'motion-view'
@@ -17,8 +17,8 @@ const Helpers = {
   addEvent, setInterval, setTimeout, ref, watch, react
 }
 
+// TODO: injectDecorate() was here
 export function view(View) {
-  injectDecorate(View)
   Object.setPrototypeOf(View.prototype, React.Component.prototype)
   mixin(View.prototype, Helpers)
   // render
@@ -35,7 +35,6 @@ view.provide = (...args) => View => provide(...args)(view(View))
 export function store(Store) {
   if (isClass(Store)) {
     mixin(Store.prototype, Helpers)
-    injectDecorate(Store)
     return autobind(Store)
   }
   return observable(observeStreams(Store))

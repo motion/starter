@@ -1,5 +1,4 @@
 import React from 'react'
-import { inject } from 'motion-view'
 import { render } from 'react-dom'
 import App from './stores/app'
 import Router from './stores/router'
@@ -10,8 +9,6 @@ App.connect()
   .then(() => {
     // inject App
     window.App = App
-
-    // TODO: Inject was here
 
     if (process.env.NODE_ENV === 'development') {
       module.hot.accept()

@@ -1,36 +1,20 @@
-import { addEvent, setTimeout, setInterval, ref, isClass } from 'motion-class-helpers'
-import { watch, react, observeStreams } from 'motion-mobx-helpers'
-import mixin from 'react-mixin'
+// import { addEvent, setTimeout, setInterval, ref, isClass } from 'motion-class-helpers'
+// import { watch, react, observeStreams } from 'motion-mobx-helpers'
 import autobind from 'autobind-decorator'
 import React from 'react'
 import gloss from 'gloss'
 import { observer } from 'mobx-react'
 import { observable } from 'mobx'
-import { provide } from 'motion-view'
+import reactMixin from 'sb-react-mixin'
 import baseStyles from './baseStyles'
-
-export { inject } from 'motion-view'
 
 export const glossy = gloss({ baseStyles })
 
-const Helpers = {
-  addEvent, setInterval, setTimeout, ref, watch, react
-}
-
 // TODO: injectDecorate() was here
-export function view(View) {
-  Object.setPrototypeOf(View.prototype, React.Component.prototype)
-  mixin(View.prototype, Helpers)
-  // render
-  const render = View.prototype.render
-  View.prototype.render = function() {
-    return render.call(this, this.props, this.state, this.context)
-  }
-  // order important
-  return autobind(glossy(observer(View)))
-}
 
-view.provide = (...args) => View => provide(...args)(view(View))
+export const view = reactMixin({ decorator: true }, [
+  autobind, glossy, observer,
+])
 
 export function store(Store) {
   if (isClass(Store)) {

@@ -16,7 +16,6 @@
     "morgan": "^1.8.1",
     "motion-hmr": "^1.1.0",
     "motion-mobx-router": "^1.0.2",
-    "motion-view": "^1.0.7",
     "passport-facebook": "^2.1.1",
     "passport-github": "^1.1.0",
     "passport-google-oauth": "^1.0.0",

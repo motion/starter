@@ -10,7 +10,6 @@
     "mobx-utils": "^2.0.1",
     "motion-class-helpers": "^1.0.0",
     "motion-mobx-helpers": "^1.0.0",
-    "motion-view": "^1.0.0",
-    "react-mixin": "^3.0.5"
+    "sb-react-mixin": "0.0.1"
   }
 }

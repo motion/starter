@@ -13,7 +13,9 @@ export const glossy = gloss({ baseStyles })
 // TODO: injectDecorate() was here
 
 export const view = reactMixin({ decorator: true }, [
-  autobind, glossy, observer,
+  glossy,
+  observer,
+  autobind,
 ])
 
 export function store(Store) {

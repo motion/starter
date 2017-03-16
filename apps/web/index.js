@@ -11,10 +11,7 @@ App.connect()
     // inject App
     window.App = App
 
-    inject({
-      app: App,
-      router: Router,
-    })
+    // TODO: Inject was here
 
     if (process.env.NODE_ENV === 'development') {
       module.hot.accept()

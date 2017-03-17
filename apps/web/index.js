@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import App from './stores/app'
-import Router from './stores/router'
+// import Router from './stores/router'
 
 window.React = React
 

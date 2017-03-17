@@ -17,7 +17,7 @@ class App {
 
     // connect models
     for (const key of Object.keys(Models)) {
-      this.models[key] = await Models[key].connect(this.db)
+      // this.models[key] = await Models[key].connect(this.db)
     }
   }
 }

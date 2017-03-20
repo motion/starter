@@ -12,7 +12,7 @@ export const glossy = gloss({ baseStyles })
 
 export function viewAttach(component: Function, stores: Object): Function {
   component.prototype.stores = null
-  return reactMixin(component, [
+  return reactMixin({ decorator: false, react: true },component, [
     glossy,
     observer,
     autobind,

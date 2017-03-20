@@ -1,10 +1,7 @@
 {
   "babel": {
     "plugins": [
-      "babel-plugin-jsx-if",
-      ["gloss/transform", {
-        "decoratorName": "view"
-      }]
+      "babel-plugin-jsx-if"
     ],
     "presets": [
       "babel-preset-steelbrain"

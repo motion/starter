@@ -4,11 +4,13 @@ import { Title, Text, Page, Link } from '../../elements'
 import { Hero } from 'models'
 
 @view({
-  x: 2,
-  // heroes: Hero.byName(),
-  // insert(name, color) {
-  //   Hero.table.insert({ name, color })
-  // },
+  stores: {
+    x: 2,
+    // heroes: Hero.byName(),
+    // insert(name, color) {
+    //   Hero.table.insert({ name, color })
+    // },
+  },
 })
 export default class Projects {
   render() {

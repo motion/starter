@@ -8,7 +8,7 @@ RxDB.plugin(pIDB)  // indexedDB
 RxDB.plugin(pREPL) // sync
 RxDB.plugin(pHTTP) // sync on http
 
-class App {
+export default class App {
   models = {}
 
   async connect() {
@@ -21,5 +21,3 @@ class App {
     }
   }
 }
-
-export default new App()

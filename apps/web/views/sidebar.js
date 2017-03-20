@@ -1,4 +1,5 @@
-import { view } from 'helpers'
+import React from 'react'
+import { view } from '../decorators'
 
 @view
 export default class Sidebar {
@@ -21,6 +22,6 @@ export default class Sidebar {
       height: '100%',
       width: 160,
       borderRight: [1, '#eee'],
-    }
+    },
   }
 }

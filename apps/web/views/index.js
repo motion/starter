@@ -1,4 +1,5 @@
-import { view } from 'helpers'
+import React from 'react'
+import { view } from '../decorators'
 import NotFound from './notfound'
 import Layout from './layout'
 

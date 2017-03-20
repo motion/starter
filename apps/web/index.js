@@ -1,23 +1,48 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
+
 import App from './stores/app'
-// import Router from './stores/router'
+import { component } from './decorators'
 
-window.React = React
+import Router from 'motion-mobx-router'
+import Views from './views'
+import Home from './views/home'
+import Projects from './views/projects'
 
-App.connect()
+const app = new App()
+
+@component
+class Root {
+  static childContextTypes = {
+    app: React.PropTypes.object.isRequired,
+    router: React.PropTypes.object.isRequired,
+  }
+  getChildContext() {
+    return {
+      app,
+      router: new Router({
+        routes: {
+          '/': Home,
+          'projects(/:id)(/tab/:tab)': Projects,
+        },
+      }),
+    }
+  }
+  render() {
+    return <Views />
+  }
+}
+
+app.connect()
   .then(() => {
-    // inject App
-    window.App = App
-
     if (process.env.NODE_ENV === 'development') {
       module.hot.accept()
     }
-
-    // render
-    const Wrapper = require('./wrapper').default
-    render(
-      <Wrapper />,
+    ReactDOM.render(
+      <Root />,
       document.querySelector('#app')
     )
+  })
+  .catch(function(error) {
+    console.error('Error caught during App connect', error)
   })

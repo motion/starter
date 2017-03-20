@@ -1,5 +1,6 @@
-import { view, store } from 'helpers'
-import { Title, Text, Page, Link } from 'views'
+import React from 'react'
+import { view } from '../../decorators'
+import { Title, Text, Page, Link } from '../../elements'
 import { Hero } from 'models'
 
 @view({

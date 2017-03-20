@@ -10,23 +10,34 @@ import baseStyles from './baseStyles'
 
 export const glossy = gloss({ baseStyles })
 
-// TODO: injectDecorate() was here
-
-export function getComponent(mixins: Array<any> = []): Function {
-  return reactMixin({ decorator: true }, [
+export function viewAttach(component: Function, stores: Object): Function {
+  component.prototype.stores = null
+  return reactMixin(component, [
     glossy,
     observer,
     autobind,
-  ].concat(mixins))
+    {
+      componentDidMount() {
+        this.stores = {}
+        Object.keys(stores).forEach(name => {
+          this.stores[name] = new stores[name](this.props)
+        })
+      },
+    },
+  ])
+}
+export function view(componentOrOptions: Function | Object = {}): Function {
+  if (typeof componentOrOptions === 'object') {
+    return function(component) {
+      return viewAttach(component, componentOrOptions)
+    }
+  }
+  return viewAttach(componentOrOptions, {})
 }
 
-export const view = getComponent([function(component) {
-  component.provide = function() {
-    console.log('view provide was called')
-  }
-}])
-export const store = getComponent([function(component) {
-  component.provide = function() {
-    console.log('store provide was called')
-  }
-}])
+// TODO: Previous @store had observeStreams
+export const store = reactMixin({ decorator: true, react: false }, [
+  glossy,
+  observer,
+  autobind,
+])

@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Router from 'motion-mobx-router'
 
 import App from './stores/app'
 import { component } from './decorators'
 
-import Router from 'motion-mobx-router'
 import Views from './views'
 import Home from './views/home'
 import Projects from './views/projects'
@@ -40,7 +40,7 @@ app.connect()
     }
     ReactDOM.render(
       <Root />,
-      document.querySelector('#app')
+      document.querySelector('#app'),
     )
   })
   .catch(function(error) {

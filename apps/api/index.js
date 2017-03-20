@@ -19,13 +19,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 const superlogin = new SuperLogin(config)
 
 const strategies = [
-  ["facebook", FacebookStrategy],
-  ["github", GitHubStrategy],
-  ["google", GoogleStrategy],
+  ['facebook', FacebookStrategy],
+  ['github', GitHubStrategy],
+  ['google', GoogleStrategy],
 ]
 
 strategies.forEach(([name, strategy]) => {
-  if(superlogin.config.getItem(`providers.${name}.credentials.clientID`)) {
+  if (superlogin.config.getItem(`providers.${name}.credentials.clientID`)) {
     superlogin.registerOAuth2(name, strategy)
   }
 })
@@ -37,9 +37,11 @@ app.use((req, res, next) => {
     || req.header('X-Forwarded-Proto') === 'https'
     || req.hostname === 'localhost'
   ) {
-    return next()
+    next()
   }
-  res.status(301).redirect(`https://${req.headers['host']}${req.url}`)
+  else {
+    res.status(301).redirect(`https://${req.headers.host}${req.url}`)
+  }
 })
 
 // superlogin routes

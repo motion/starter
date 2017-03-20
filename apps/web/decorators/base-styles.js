@@ -3,7 +3,7 @@
 export default {
   style: styles => styles,
   flex: flex => ({ flex: flex === true ? 1 : flex }),
-  absolute: ([top,right,bottom,left]) => ({ top, left, bottom, right, position: 'absolute' }),
+  absolute: ([top, right, bottom, left]) => ({ top, left, bottom, right, position: 'absolute' }),
   // direct
   opacity: opacity => ({ opacity }),
   zIndex: zIndex => ({ zIndex }),

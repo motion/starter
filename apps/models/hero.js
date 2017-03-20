@@ -8,17 +8,15 @@ class Hero extends Model {
     properties: {
       name: {
         type: 'string',
-        primary: true
+        primary: true,
       },
       color: {
-        type: 'string'
-      }
-    }
+        type: 'string',
+      },
+    },
   }
 
-  @query byName = () => {
-    return this.table.find().sort({ name: 1 })
-  }
+  @query byName = () => this.table.find().sort({ name: 1 })
 }
 
 export default new Hero()

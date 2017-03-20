@@ -10,11 +10,11 @@ import { Hero } from 'models'
   // },
 })
 export default class Projects {
-  render({ store }) {
+  render() {
     return (
       <Page>
-        <Title>hi {store.x}</Title>
-        <button onClick={() => store.x++}>increment</button>
+        <Title>hi {this.stores.x}</Title>
+        <button onClick={() => this.stores.x++}>increment</button>
         {/* {(store.heroes.current || []).map(hero =>
           <hero key={Math.random()}>
             {hero.name || 'none'} {hero.color || 'none'}
@@ -22,7 +22,7 @@ export default class Projects {
         )} */}
         name <input ref={x => this.name = x} />
         color <input ref={x => this.color = x} />
-        <button onClick={() => store.insert(this.name.value, this.color.value)}>insert hero</button>
+        <button onClick={() => this.stores.insert(this.name.value, this.color.value)}>insert hero</button>
       </Page>
     )
   }

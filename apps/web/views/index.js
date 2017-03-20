@@ -5,7 +5,7 @@ import Layout from './layout'
 @view
 export default class Root {
   render() {
-    const CurrentPage = this.router.activeView || NotFound
+    const CurrentPage = this.context.router.activeView || NotFound
     return (
       <Layout $$flex>
         <CurrentPage />

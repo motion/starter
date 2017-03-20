@@ -15,9 +15,9 @@ App.connect()
     }
 
     // render
-    const Views = require('./views').default
+    const Wrapper = require('./wrapper').default
     render(
-      <Views key={Math.random()} />,
+      <Wrapper />,
       document.querySelector('#app')
     )
   })

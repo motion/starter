@@ -11,6 +11,7 @@ export const component = getView([], {
 export const view = getView([], {
   baseStyles,
   contextTypes: {
+    app: React.PropTypes.object.isRequired,
     router: React.PropTypes.object.isRequired,
   },
 })

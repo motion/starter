@@ -6,7 +6,8 @@ const SIZE = 10
 
 @view
 export default class Letter {
-  render({ children: letter }) {
+  render() {
+    const { letter } = this.props
     return (
       <circ key={letter}>
         <let>
